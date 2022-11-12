@@ -5,7 +5,5 @@ variant: {
     size = normal.size;
   };
 
-  theme = {
-    name = (if variant == "dark" then "Rosé Pine" else "Rosé Pine Dawn");
-  };
+  theme = (if variant == "dark" then "Rosé Pine" else "Rosé Pine Dawn");
 }

@@ -1,6 +1,6 @@
-{ 
+{
   normal = {
-    family = "Iosevka";
-    size = 12;
+    family = "Iosevka Nerd Font";
+    size = 11;
   };
 }

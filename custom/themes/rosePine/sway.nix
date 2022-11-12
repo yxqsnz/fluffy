@@ -1,4 +1,6 @@
-colorScheme: with colorScheme; {
+colorScheme:
+let fonts = import ./fonts.nix;
+in with colorScheme; {
   colors = {
     focused = {
       inherit text;
@@ -8,7 +10,7 @@ colorScheme: with colorScheme; {
       border = highlight.high;
       childBorder = highlight.high;
     };
-    
+
     unfocused = {
       inherit text;
 
@@ -26,6 +28,12 @@ colorScheme: with colorScheme; {
       border = love;
       childBorder = love;
     };
+  };
+
+  fonts = {
+    names = [ fonts.normal.family ];
+    style = "Regular";
+    size = fonts.normal.size + 0.0;
   };
 
   gaps = {

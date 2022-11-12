@@ -1,7 +1,7 @@
 let custom = import ../../../../../custom;
-in with custom.theme; {
+in with custom.theme.kitty; {
   programs.kitty = {
     enable = true;
-    theme = kitty.theme.name;
+    inherit theme font;
   };
 }
