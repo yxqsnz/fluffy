@@ -13,6 +13,7 @@
   pine = "#31748f";
   foam = "#9ccfd8";
   iris = "#c4a7e7";
+
   highlight = {
     low = "#21202e";
     med = "#403d52";

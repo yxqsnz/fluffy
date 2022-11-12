@@ -7,6 +7,8 @@ in {
     pkgs.pinentry
     pkgs.gh
     pkgs.iosevka
+    pkgs.wf-recorder
+    pkgs.ffmpeg
     (pkgs.nerdfonts.override { fonts = [ "Iosevka" ]; })
   ];
 
