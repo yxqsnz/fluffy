@@ -12,6 +12,7 @@
       ./security.nix
       ./hardware.nix
       ./services.nix
+      ./podman.nix
     ];
 
   users = {

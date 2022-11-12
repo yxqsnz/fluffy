@@ -10,6 +10,15 @@ in {
     pkgs.wf-recorder
     pkgs.ffmpeg
     pkgs.discord-canary
+    pkgs.wl-clipboard
+    pkgs.p7zip
+    pkgs.distrobox
+    pkgs.podman-compose
+    pkgs.noto-fonts
+    pkgs.noto-fonts-extra
+    pkgs.noto-fonts-emoji
+    pkgs.noto-fonts-cjk-sans
+    pkgs.noto-fonts-cjk-serif
     (pkgs.nerdfonts.override { fonts = [ "Iosevka" ]; })
   ];
 
