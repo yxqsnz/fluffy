@@ -9,6 +9,7 @@ in {
     pkgs.iosevka
     pkgs.wf-recorder
     pkgs.ffmpeg
+    pkgs.discord-canary
     (pkgs.nerdfonts.override { fonts = [ "Iosevka" ]; })
   ];
 

@@ -11,10 +11,11 @@
 
   outputs = { self, nixpkgs, home-manager }:
     let
+      yxqsnzOverlay = import ./overlay/yxqsnz.nix;
       pkgs = import nixpkgs {
         system = "x86_64-linux";
         config.allowUnfree = true;
-        overlays = [ ];
+        overlays = [ yxqsnzOverlay ];
       };
 
       inherit (nixpkgs) lib;
