@@ -11,6 +11,7 @@
       ./hardware-configuration.nix
       ./security.nix
       ./hardware.nix
+      ./services.nix
     ];
 
   users = {

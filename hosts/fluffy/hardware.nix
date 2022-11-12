@@ -5,7 +5,7 @@
     driSupport32Bit = true;
 
     extraPackages = with pkgs; [
-      vaapiIntel        
+      vaapiIntel
       vaapiVdpau
       libvdpau-va-gl
     ];
