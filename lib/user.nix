@@ -12,6 +12,7 @@
       ../users/${userName}
     ];
   };
+
   mkSystemUser = { name, groups, uid, shell, initialPassword ? "123", ... }: {
     users.users."${name}" = {
       name = name;
