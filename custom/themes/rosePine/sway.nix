@@ -37,7 +37,7 @@ in with colorScheme; {
   };
 
   gaps = {
-    inner = 7;
-    outer = 7;
+    inner = 4;
+    outer = 4;
   };
 }
