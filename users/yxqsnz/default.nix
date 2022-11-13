@@ -14,7 +14,6 @@ in
   programs.firefox.enable = true;
 
   home.packages = [
-    pkgs.foot
     pkgs.pinentry
     pkgs.gh
     pkgs.iosevka
