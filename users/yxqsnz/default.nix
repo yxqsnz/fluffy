@@ -14,24 +14,39 @@ in
   programs.firefox.enable = true;
 
   home.packages = [
-    pkgs.pinentry
-    pkgs.gh
-    pkgs.iosevka
+
+    # Chat
+    pkgs.discord-canary
+
+    # Util
     pkgs.wf-recorder
     pkgs.ffmpeg
-    pkgs.discord-canary
     pkgs.wl-clipboard
     pkgs.p7zip
-    pkgs.distrobox
-    pkgs.podman-compose
-    pkgs.noto-fonts
-    pkgs.mold
-    pkgs.rustup
-    pkgs.vscode
+
+
+    # Rust Stuff
     pkgs.ripgrep
     pkgs.gnumake
     pkgs.fd
+    pkgs.mold
+    pkgs.rustup
+
+    # Coding Stuff 
     pkgs.nixpkgs-fmt
+    pkgs.vscode
+    pkgs.distrobox
+    pkgs.podman-compose
+    pkgs.pinentry
+    pkgs.gh
+
+    # Gaming
+    pkgs.mangohud
+    pkgs.steam
+
+    # Fonts
+    pkgs.iosevka
+    pkgs.noto-fonts
     pkgs.noto-fonts-extra
     pkgs.noto-fonts-emoji
     pkgs.noto-fonts-cjk-sans

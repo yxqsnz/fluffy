@@ -12,6 +12,7 @@
       ./security.nix
       ./hardware.nix
       ./services.nix
+      ./gamemode.nix
       ./podman.nix
     ];
 
