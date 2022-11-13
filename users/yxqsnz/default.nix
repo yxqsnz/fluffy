@@ -32,6 +32,7 @@ in
     pkgs.ripgrep
     pkgs.gnumake
     pkgs.fd
+    pkgs.nixpkgs-fmt
     pkgs.noto-fonts-extra
     pkgs.noto-fonts-emoji
     pkgs.noto-fonts-cjk-sans
@@ -40,7 +41,7 @@ in
   ] ++ ccStdenv;
 
   imports = [
-    ./custom/windowManager/sway.nix
+    ./custom/windowManager/sway
     ./custom/windowManager/mako.nix
     ./custom/compiler/cargo.nix
     ./custom/editor/vscode.nix
