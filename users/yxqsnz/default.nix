@@ -42,7 +42,7 @@ in
 
     # Gaming
     pkgs.mangohud
-    pkgs.steam
+    (pkgs.steam.override { extraProfile = ''unset VK_ICD_FILENAMES''; })
 
     # Fonts
     pkgs.iosevka

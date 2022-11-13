@@ -2,7 +2,9 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, modulesPath, ... }:
-
+let
+  mountOptions = [ "compress=zstd:7" "noatime" ];
+in
 {
   imports =
     [
@@ -14,9 +16,12 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.kernelParams = [ "i915.modeset=1" "amdgpu.runpm=0" "amdgpu.aspm=0" "amdgpu.si_support=1" "radeon.si_support=0" ];
   boot.extraModulePackages = [ ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  fileSystems."/" =
-    {
+  boot.initrd.luks.devices."system".device = "/dev/disk/by-uuid/e8924f0d-df57-423e-9331-dc3d4a3e54a8";
+
+  fileSystems = {
+    "/" = {
       device = "none";
       fsType = "tmpfs";
       options = [
@@ -25,34 +30,36 @@
       ];
     };
 
-  fileSystems."/nix" =
-    {
-      device = "/dev/disk/by-uuid/2a841409-25de-4158-ba82-8fe3ad0fd7a7";
-      fsType = "btrfs";
-      options = [ "subvol=@nix" ];
-    };
+    "/boot" =
+      {
+        device = "/dev/disk/by-uuid/C325-5886";
+        fsType = "vfat";
+      };
 
-  boot.initrd.luks.devices."system".device = "/dev/disk/by-uuid/e8924f0d-df57-423e-9331-dc3d4a3e54a8";
+    "/nix" =
+      {
+        device = "/dev/disk/by-uuid/2a841409-25de-4158-ba82-8fe3ad0fd7a7";
+        fsType = "btrfs";
+        options = [ "subvol=@nix" ] ++ mountOptions;
+      };
 
-  fileSystems."/home" =
-    {
-      device = "/dev/disk/by-uuid/2a841409-25de-4158-ba82-8fe3ad0fd7a7";
-      fsType = "btrfs";
-      options = [ "subvol=@home" ];
-    };
+    "/nix/persist" =
+      {
+        device = "/dev/disk/by-uuid/2a841409-25de-4158-ba82-8fe3ad0fd7a7";
+        fsType = "btrfs";
+        options = [ "subvol=@persist" ] ++ mountOptions;
+      };
 
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/C325-5886";
-      fsType = "vfat";
-    };
+    "/home" =
+      {
+        device = "/dev/disk/by-uuid/2a841409-25de-4158-ba82-8fe3ad0fd7a7";
+        fsType = "btrfs";
+        options = [ "subvol=@home" ] ++ mountOptions;
+      };
+  };
 
-  fileSystems."/nix/persist" =
-    {
-      device = "/dev/disk/by-uuid/2a841409-25de-4158-ba82-8fe3ad0fd7a7";
-      fsType = "btrfs";
-      options = [ "subvol=@persist" ];
-    };
+
+
 
   swapDevices = [ ];
 

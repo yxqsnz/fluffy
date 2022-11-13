@@ -2,7 +2,7 @@
 let
   mod = "Mod4";
   playerctl = "exec ${pkgs.playerctl}/bin/playerctl";
-  light = "exec ${pkgs.light}/bin/light";
+  brightnessctl = "exec ${pkgs.brightnessctl}/bin/brightnessctl";
   grimshot = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot";
   cfg = config.wayland.windowManager.sway;
   audio = "exec ${pkgs.pamixer}/bin/pamixer";
@@ -19,8 +19,8 @@ in
   XF86AudioNext = "${playerctl} next";
   XF86AudioPrev = "${playerctl} previous";
   # Control brightness
-  XF86MonBrightnessUp = "${light} -A 10";
-  XF86MonBrightnessDown = "${light} -U 10";
+  XF86MonBrightnessUp = "${brightnessctl} set 10%+";
+  XF86MonBrightnessDown = "${brightnessctl} set 10%-";
 
   Print = "${grimshot} --notify copy screen";
   "Shift+Print" = "${grimshot} --notify copy area";

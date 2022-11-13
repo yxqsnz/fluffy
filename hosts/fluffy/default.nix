@@ -14,6 +14,7 @@
       ./services.nix
       ./gamemode.nix
       ./podman.nix
+      ./zram.nix
     ];
 
   users = {
@@ -42,6 +43,14 @@
     git
     wget
   ];
+
+  xdg.portal = {
+    enable = true;
+
+    wlr = {
+      enable = true;
+    };
+  };
 
   programs.dconf.enable = true;
   # List services that you want to enable:
