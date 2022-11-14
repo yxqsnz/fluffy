@@ -40,10 +40,13 @@ in
     pkgs.pinentry
     pkgs.gh
 
+    # Cli tools
+    pkgs.duf
+
     # Gaming
     pkgs.mangohud
-    (pkgs.steam.override { extraProfile = ''unset VK_ICD_FILENAMES''; })
-
+    pkgs.steam
+    
     # Fonts
     pkgs.iosevka
     pkgs.noto-fonts

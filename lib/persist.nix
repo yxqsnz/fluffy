@@ -6,7 +6,7 @@
       };
 
       "machine-id" = {
-        source = "/nix/persist/data/machineId";
+        source = "/nix/system/id";
       };
     };
   };

@@ -39,9 +39,15 @@
 
   environment.defaultPackages = lib.mkDefault [ ];
   environment.systemPackages = with pkgs; [
-    neovim
-    git
-    wget
+    # Default packages 
+    neovim # Text Editor
+    git    # Source code management
+    wget   # HTTP Management
+ 
+    # Resource usage
+    compsize
+    nvtop
+    htop
   ];
 
   xdg.portal = {
@@ -51,13 +57,17 @@
       enable = true;
     };
   };
+  
+  services.udev.extraRules = ''
+  KERNEL=="card1", SUBSYSTEM=="drm", DRIVERS=="amdgpu", ATTR{device/power_dpm_force_performance_level}="high"
+  '';
 
   programs.dconf.enable = true;
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
+ 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
