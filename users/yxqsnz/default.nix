@@ -69,7 +69,7 @@ in
     ./custom/app/dev/git.nix
   ];
 
-  gtk = custom.theme.gtk;
+  gtk = custom.theme.gtk { variant = custom.colorScheme.variant; inherit pkgs; };
   programs.gpg.enable = true;
   fonts.fontconfig.enable = true;
   services.gpg-agent = {
