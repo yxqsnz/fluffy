@@ -48,6 +48,7 @@
     compsize
     nvtop
     htop
+    lm_sensors
   ];
 
   xdg.portal = {

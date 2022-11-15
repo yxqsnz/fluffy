@@ -46,7 +46,7 @@ in
     # Gaming
     pkgs.mangohud
     pkgs.steam
-    
+
     # Fonts
     pkgs.iosevka
     pkgs.noto-fonts
@@ -63,6 +63,7 @@ in
     ./custom/compiler/cargo.nix
     ./custom/editor/vscode.nix
     ./custom/shell/fish
+    ./custom/app/web/firefox.nix
     ./custom/app/term/kitty.nix
     ./custom/app/dev/git.nix
   ];
