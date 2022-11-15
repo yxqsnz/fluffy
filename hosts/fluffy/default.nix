@@ -41,9 +41,9 @@
   environment.systemPackages = with pkgs; [
     # Default packages 
     neovim # Text Editor
-    git    # Source code management
-    wget   # HTTP Management
- 
+    git # Source code management
+    wget # HTTP Management
+
     # Resource usage
     compsize
     nvtop
@@ -58,9 +58,9 @@
       enable = true;
     };
   };
-  
+
   services.udev.extraRules = ''
-  KERNEL=="card1", SUBSYSTEM=="drm", DRIVERS=="amdgpu", ATTR{device/power_dpm_force_performance_level}="high"
+    KERNEL=="card1", SUBSYSTEM=="drm", DRIVERS=="amdgpu", ATTR{device/power_dpm_force_performance_level}="high"
   '';
 
   programs.dconf.enable = true;
@@ -68,7 +68,7 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
- 
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

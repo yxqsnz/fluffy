@@ -10,5 +10,12 @@
     flatpak = {
       enable = true;
     };
+    earlyoom = {
+      enable = true;
+      enableNotifications = true;
+      extraArgs = [
+        "--avoid '(^|/)(sway|pipewire|pipewire-pulse|init|ssh)$'"
+      ];
+    };
   };
 }

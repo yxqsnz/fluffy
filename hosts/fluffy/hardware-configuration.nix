@@ -17,8 +17,8 @@ in
   boot.kernelParams = [ "i915.modeset=1" "amdgpu.runpm=0" "amdgpu.ppfeaturemask=0xfffd7fff" "amdgpu.si_support=1" "radeon.si_support=0" ];
   boot.extraModulePackages = [ ];
   boot.kernel.sysctl = {
-   "vm.overcommit_memory" = 2;
-   "vm.overcommit_ratio" = 100;
+    "vm.overcommit_memory" = 2;
+    "vm.overcommit_ratio" = 100;
   };
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
