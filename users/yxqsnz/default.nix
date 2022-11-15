@@ -43,6 +43,7 @@ in
     # Cli tools
     pkgs.duf
     pkgs.yt-dlp
+    pkgs.xdg-utils
 
     # Gaming
     pkgs.mangohud

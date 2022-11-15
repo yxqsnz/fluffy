@@ -16,10 +16,6 @@ in
   boot.kernelModules = [ "kvm-intel" ];
   boot.kernelParams = [ "i915.modeset=1" "amdgpu.runpm=0" "amdgpu.ppfeaturemask=0xfffd7fff" "amdgpu.si_support=1" "radeon.si_support=0" ];
   boot.extraModulePackages = [ ];
-  boot.kernel.sysctl = {
-    "vm.overcommit_memory" = 2;
-    "vm.overcommit_ratio" = 100;
-  };
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   boot.initrd.luks.devices."system".device = "/dev/disk/by-uuid/e8924f0d-df57-423e-9331-dc3d4a3e54a8";

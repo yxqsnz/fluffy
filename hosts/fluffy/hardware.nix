@@ -7,8 +7,9 @@
     extraPackages = with pkgs; [
       mesa.opencl
       vaapiIntel
-      vaapiVdpau
       libvdpau-va-gl
+      vulkan-validation-layers
+      vulkan-extension-layer
     ];
   };
 }
