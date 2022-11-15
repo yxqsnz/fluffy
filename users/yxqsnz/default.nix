@@ -42,6 +42,7 @@ in
 
     # Cli tools
     pkgs.duf
+    pkgs.yt-dlp
 
     # Gaming
     pkgs.mangohud
