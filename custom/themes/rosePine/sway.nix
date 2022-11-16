@@ -1,4 +1,4 @@
-colorScheme:
+{ pkgs, colorScheme }:
 let fonts = import ./fonts.nix;
 in with colorScheme; {
   colors = {
@@ -40,4 +40,23 @@ in with colorScheme; {
     inner = 4;
     outer = 4;
   };
+
+  bars = [{
+    fonts = {
+      names = [ fonts.normal.family ];
+      style = "Regular";
+      size = fonts.normal.size + 0.0;
+    };
+
+    position = "top";
+
+    colors = {
+      background = base;
+    };
+
+    statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
+  }];
+
+  extraPrograms = import ./i3status-rust.nix;
 }
+
