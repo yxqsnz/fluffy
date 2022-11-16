@@ -10,6 +10,11 @@
     flatpak = {
       enable = true;
     };
+
+    logmein-hamachi = {
+      enable = true;
+    };
+
     earlyoom = {
       enable = true;
       enableNotifications = true;

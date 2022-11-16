@@ -14,7 +14,7 @@ in
   boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" "i915" ];
   boot.initrd.kernelModules = [ "i915" ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.kernelParams = [ "i915.modeset=1" "amdgpu.runpm=0" "amdgpu.ppfeaturemask=0xfffd7fff" "amdgpu.si_support=1" "radeon.si_support=0" ];
+  boot.kernelParams = [ "i915.modeset=1" "amdgpu.aspm=0" "amdgpu.ppfeaturemask=0xfffd7fff" "amdgpu.si_support=1" "radeon.si_support=0" ];
   boot.extraModulePackages = [ ];
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
