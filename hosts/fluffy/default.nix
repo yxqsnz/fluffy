@@ -19,7 +19,7 @@
 
   users = {
     users.root.initialPassword = "123";
-    mutableUsers = false;
+    mutableUsers = true;
     groups = { system-config = { }; };
   };
 
@@ -49,6 +49,7 @@
     compsize
     nvtop
     htop
+    bottom
     lm_sensors
   ];
 
