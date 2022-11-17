@@ -26,7 +26,7 @@ with customSway; {
   services.swayidle = {
     enable = true;
     timeouts = [
-      { timeout = 300; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
+      { timeout = 300; command = "${pkgs.swaylock-effects}/bin/swaylock-effects -fF"; }
       {
         timeout = 600;
         command = "swaymsg 'output * dpms off'";

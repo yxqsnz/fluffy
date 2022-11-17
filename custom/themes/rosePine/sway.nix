@@ -39,6 +39,7 @@ in with colorScheme; {
   gaps = {
     inner = 4;
     outer = 4;
+    smartGaps = true;
   };
 
   bars = [{
