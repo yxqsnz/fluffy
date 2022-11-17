@@ -3,7 +3,8 @@
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, modulesPath, ... }:
 let
-  mountOptions = [ "compress=zstd:7" "noatime" ];
+  mountOptions = [ "compress=zstd:7" "noatime" "discard=async" ];
+  mapDevice = "/dev/mapper/system";
 in
 {
   imports =
@@ -11,48 +12,38 @@ in
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" "i915" ];
-  boot.initrd.kernelModules = [ "i915" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" "i915" "radeon" ];
+  boot.initrd.kernelModules = [ "i915" "radeon" ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.kernelParams = [ "i915.modeset=1" "amdgpu.aspm=0" "amdgpu.ppfeaturemask=0xfffd7fff" "amdgpu.si_support=1" "radeon.si_support=0" ];
+  boot.kernelParams = [ "i915.modeset=1" ];
   boot.extraModulePackages = [ ];
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
 
-  boot.initrd.luks.devices."system".device = "/dev/disk/by-uuid/e8924f0d-df57-423e-9331-dc3d4a3e54a8";
+  boot.initrd.luks.devices."system".device = "/dev/sda2";
 
   fileSystems = {
     "/" = {
-      device = "none";
-      fsType = "tmpfs";
-      options = [
-        "size=512M"
-        "mode=755"
-      ];
+      device = mapDevice;
+      fsType = "btrfs";
+      options = [ "subvol=@nixos" ] ++ mountOptions;
     };
 
     "/boot" =
       {
-        device = "/dev/disk/by-uuid/C325-5886";
+        device = "/dev/sda1";
         fsType = "vfat";
       };
 
     "/nix" =
       {
-        device = "/dev/disk/by-uuid/2a841409-25de-4158-ba82-8fe3ad0fd7a7";
+        device = mapDevice;
         fsType = "btrfs";
         options = [ "subvol=@nix" ] ++ mountOptions;
       };
 
-    "/nix/persist" =
-      {
-        device = "/dev/disk/by-uuid/2a841409-25de-4158-ba82-8fe3ad0fd7a7";
-        fsType = "btrfs";
-        options = [ "subvol=@persist" ] ++ mountOptions;
-      };
-
     "/home" =
       {
-        device = "/dev/disk/by-uuid/2a841409-25de-4158-ba82-8fe3ad0fd7a7";
+        device = mapDevice;
         fsType = "btrfs";
         options = [ "subvol=@home" ] ++ mountOptions;
       };

@@ -61,6 +61,7 @@ in
 
   imports = [
     ./custom/windowManager/sway
+    ./custom/windowManager/hyprland.nix
     ./custom/windowManager/mako.nix
     ./custom/compiler/cargo.nix
     ./custom/editor/vscode.nix

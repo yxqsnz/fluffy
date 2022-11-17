@@ -8,7 +8,6 @@
 
       modules = [
         configuration
-        ./persist.nix
 
         {
           imports = systemUsers;
