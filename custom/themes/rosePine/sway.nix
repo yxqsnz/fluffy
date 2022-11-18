@@ -7,7 +7,7 @@ in with colorScheme; {
 
       background = surface;
       indicator = highlight.high;
-      border = highlight.high;
+      border = overlay;
       childBorder = highlight.high;
     };
 
@@ -49,10 +49,32 @@ in with colorScheme; {
       size = fonts.normal.size + 0.0;
     };
 
-    position = "top";
+    position = "bottom";
 
     colors = {
       background = base;
+      statusline = text;
+
+      focusedWorkspace = {
+        background = overlay;
+        border = highlight.med;
+
+        inherit text;
+      };
+
+      inactiveWorkspace = {
+        background = highlight.low;
+        border = highlight.med;
+
+        inherit text;
+      };
+
+      urgentWorkspace = {
+        background = love;
+        border = highlight.med;
+
+        inherit text;
+      };
     };
 
     statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";

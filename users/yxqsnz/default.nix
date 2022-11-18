@@ -50,6 +50,11 @@ in
     pkgs.mangohud
     pkgs.steam
 
+    # Lsp servers
+    pkgs.rust-analyzer
+    pkgs.sumneko-lua-language-server
+    pkgs.pyright
+
     # Fonts
     pkgs.iosevka
     pkgs.noto-fonts

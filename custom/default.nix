@@ -1,6 +1,6 @@
 rec {
   themeName = "rosePine";
-  colorSchemeName = "rosePineDark";
+  colorSchemeName = "rosePineLight";
 
   colorScheme = import ./colorSchemes/${colorSchemeName}.nix;
   theme = import ./themes/${themeName} { inherit colorScheme; };
