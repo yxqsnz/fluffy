@@ -35,6 +35,7 @@ in
     # Coding Stuff 
     pkgs.nixpkgs-fmt
     pkgs.vscode
+    pkgs.jetbrains.idea-community
     pkgs.distrobox
     pkgs.podman-compose
     pkgs.pinentry
@@ -49,6 +50,7 @@ in
     # Gaming
     pkgs.mangohud
     pkgs.steam
+    
 
     # Lsp servers
     pkgs.rust-analyzer

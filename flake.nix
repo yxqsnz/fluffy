@@ -2,6 +2,7 @@
   description = "My System Config";
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -9,7 +10,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager }:
+  outputs = { self, nixpkgs, home-manager, nix-doom-emacs }:
     let
       yxqsnzOverlay = import ./overlay/yxqsnz.nix;
       customPackagesOverlay = import ./overlay/customPackages.nix;
@@ -30,7 +31,7 @@
     in
     {
       homeConfigurations = {
-        yxqsnz = user.mkHomeManagerUser "yxqsnz";
+        yxqsnz = user.mkHomeManagerUser "yxqsnz" [ nix-doom-emacs.hmModule ];
       };
 
       nixosConfigurations = {

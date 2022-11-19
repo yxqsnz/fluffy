@@ -1,5 +1,5 @@
 { pkgs, home-manager }: {
-  mkHomeManagerUser = userName: home-manager.lib.homeManagerConfiguration {
+  mkHomeManagerUser = userName: extraModules: home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
 
     modules = [
@@ -10,7 +10,7 @@
         programs.home-manager.enable = true;
       }
       ../users/${userName}
-    ];
+    ] ++ extraModules;
   };
 
   mkSystemUser = { name, groups, uid, shell, initialPassword ? "123", ... }: {
