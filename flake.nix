@@ -1,7 +1,7 @@
 {
   description = "My System Config";
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
     home-manager = {
