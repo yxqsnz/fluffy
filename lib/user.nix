@@ -6,7 +6,7 @@
       {
         home.username = userName;
         home.homeDirectory = "/home/${userName}";
-        home.stateVersion = "22.05";
+        home.stateVersion = "22.11";
         programs.home-manager.enable = true;
       }
       ../users/${userName}
